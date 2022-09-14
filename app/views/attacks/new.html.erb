@@ -1,0 +1,46 @@
+<h1 align="center">Attachments</h1> <br> 
+<%= form_for([@attack.project, @attack]) do |f| %>
+  <% if @attack.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attack.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @attack.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.text_field :name, class: "aziz" %> 
+      <%= f.file_field :upload, class: "aziz" %> <br>
+       
+      <%= f.submit "Add", class:"btn btn-primary btn_add"%> <br>
+      <% end %>
+      
+      <% @attacks.each do |attack| %>
+        <% if attack.upload.attached? %>
+          <% if  attack.upload.image?%>
+            <%= link_to image_tag(attack.upload, class: "img_upload"),  rails_blob_path(attack.upload, disposition: "attachment") %>
+          <% elsif attack.upload.audio? %>
+            <%= attack.upload.filename %>
+            <audio controls>
+              <source src=" <%= rails_blob_url(attack.upload, disposition: "attachment") %>" type="audio/mpeg"/>
+            </audio>
+          <% else %>
+          <%= link_to attack.upload.filename,  rails_blob_path(attack.upload, disposition: "attachment") %>
+          <% end %>                  
+            <%= link_to 'Destroy',   [attack.project, attack], 'data-turbo-method': :delete, class: "more-link"   %>
+        <% end %>      
+      <% end %>
+
+
+<style>
+
+.img_upload{
+   border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+</style>

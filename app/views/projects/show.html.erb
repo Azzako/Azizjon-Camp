@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag "cen"%>
+<br>
+<br>
+
+<div class="center" style="width: 35rem; color: white;">
+  <div class="card-body">
+    <h5 class="card-title", align="center">Show</h5>
+    <%= render @project %>
+      <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-outline-warning", style: "width: 150px; height: 38px;"%> |
+      <%= link_to "New Attachments", project_attacks_path(@project), class: "btn btn-outline-primary" %> <hr>
+      <%= button_to "Destroy this project", @project, method: :delete, class: "btn btn-outline-danger", style: "margin-left: 20px;"  %>
+  </div>
+</div>

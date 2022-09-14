@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @attack %>
+
+<div>
+  <%= link_to "Edit this attack", edit_attack_path(@attack) %> |
+  <%= link_to "Back to attacks", attacks_path %>
+
+  <%= button_to "Destroy this attack", @attack, method: :delete %>
+</div>

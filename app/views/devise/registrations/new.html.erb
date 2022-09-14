@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag "cen" %>
+<br>
+<br>
+<br>
+<br>
+<div class="center">
+<style>
+  h2{
+    color: #FFFAFA;
+  }
+</style>
+<br>
+<h2 align="center">Sign up</h2>
+<br>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+
+<form class="form-sign-up">
+<div class="col-md-12 sign-up"> 
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control input", style: "background: none; color: #fff;"%>
+</div>
+
+<br>
+
+<div class="col-md-12">
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password", style: "background: none; color: #fff;"%>
+</div>
+
+<br>
+
+<div class="col-md-12">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password confirmation", style: "background: none; color: #fff;"%>
+</div>
+
+<br>
+
+  <div class="actions">
+    <%= f.submit "Sign up", data: {turbo: false}, class: "btn btn-outline-light" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</form>
+</div>

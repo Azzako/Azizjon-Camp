@@ -1,0 +1,54 @@
+<br><br><br><br>
+
+<div class="center">
+
+<% if current_user %> 
+
+<style>
+	h1{
+		color: #FFFAFA;
+	}
+</style>
+<h1 align="center">Basecamp</h1>
+
+<style>
+	p{
+		color: #FFFAFA;
+	}
+</style>
+<p align="center">Hello <%= current_user.email %>!</p> 
+<br>
+
+	<%= stylesheet_link_tag "register"%>
+	<%= stylesheet_link_tag "cen"%>
+
+	<% if current_user.admin? %>
+	 <%= link_to "Admin Panel", "/admin" , class: "btn btn-outline-light"%>
+	<% end %>
+
+	<%= link_to "New Projects", projects_path, class: "btn btn-outline-light" %> 
+	<%= link_to "New Posts", posts_path, class: "btn btn-outline-light"  %> 
+	<br>
+	<br>
+	<div class="animation start-home"></div>
+    
+
+<% else %>
+	<br>
+	<br>
+	<br>
+	<style>
+		h4{
+			color: #FFFAFA;
+		}
+	</style>
+    <h4 align="center">Welcome to Basecamp</h4>
+
+	<br><br><br>
+
+	<%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-outline-light" %>
+	<%= link_to "Login", new_user_session_path, class: "btn btn-outline-light" %>
+	
+	<br><br><br><br><br><br><br><br>
+<% end %>
+</div>

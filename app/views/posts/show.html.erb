@@ -1,0 +1,28 @@
+<div class="container">
+<br>
+<br> 
+ <%= render @post %>
+
+  <% if @post.user != current_user %>
+    <br>
+    <% else %>
+    <br>
+  <% end %>
+      <%= link_to "Back to posts", posts_path, class: "btn btn-outline-secondary", style: "height: 40px; width: 130px;"%> |
+      <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-outline-warning", style: "height: 40px; width: 130px;"%> |
+      <%= link_to "Destroy this post", @post, method: :delete, class: "btn btn-outline-danger", style: "width: 150px;" %> 
+</div>
+<br>
+<br>
+
+<div class="container">
+  <%= render 'comments/form', 
+    post: @post, 
+    comment: @post.comments.build,
+    submit_label: "Reply" %>
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment', 
+    post: @post, 
+    comment: comment %>
+  <% end %>
+</div>

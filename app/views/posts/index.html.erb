@@ -1,0 +1,25 @@
+<div class="posts">
+<br>
+<br>
+<br>
+
+
+<div class="row">
+  <% @posts.each do |post| %>
+  
+  <div class="card-body", style="width: 25rem; height: 10rem; border: 1px solid rgb(240, 251, 240);">
+    <style>
+      h5{
+        color: white;
+      }
+      p{
+        color: white;
+      }
+    </style>
+    <h5 class="card-title"><%= post.title %></h5>
+    <p class="card-text"><%= post.body %></p>
+    <br>
+    <%= link_to "Show this post", post, class: "btn btn-outline-secondary", style: "width: 150px; height: 38px;" %>
+  </div>
+<% end %>
+</div>

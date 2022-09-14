@@ -1,0 +1,13 @@
+<div id="<%= dom_id post %>">
+
+<div class="card" style="width: 23rem;">
+  <div class="card-body">
+    <h3 class="card-title", align="center">Posts</h3>
+  </div>
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item"><h2><%= post.title %></h2></li>
+      <li class="list-group-item"><h3>Posted by: <%= link_to post.user.email, user_path(post.user) %></h3></li>
+      <li class="list-group-item"><h6><%= pluralize(post.views, "views") %></h6></li>
+  </ul>
+</div>
+</div>
